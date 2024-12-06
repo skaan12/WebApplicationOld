@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace MODEL.Abstract.BaseEntities.Users
 {
-    public abstract class BaseUserFilmListEntity : BaseEntity, IUserFilmListEntity
+    public abstract class BaseUserFilmListEntity : IUserFilmListEntity,IJoinEntity<string,int>
     {
 
         public string UserID { get; set; }
         public int FilmID { get; set; }
         public int Priority { get; set; }
         public DateTime Date { get; set; }
-
-
+        public string FirstID { get => UserID; set => UserID = value ; }
+        public int SecondID { get => FilmID; set => FilmID = value ; }
     }
 }

@@ -16,7 +16,7 @@ namespace DAL.Configurations.Films
         {
             builder.HasKey(x => x.ID);
             builder.Property(x => x.Description).HasMaxLength(250);
-            builder.HasOne(x=>x.SpecialCategory).WithMany(x=>x.Film).HasForeignKey(x=>x.ID);
+            builder.HasOne(x=>x.SpecialCategory).WithMany(x=>x.Film).HasForeignKey(x=>x.SpecialCategoryID);
             
         }
 

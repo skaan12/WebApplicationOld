@@ -275,7 +275,8 @@ namespace DAL.Migrations
                 name: "Films",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false),
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ComputerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedIpAdress = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -294,14 +295,15 @@ namespace DAL.Migrations
                     Subtitles = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TrailerURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Supplier = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StockInQuantity = table.Column<int>(type: "int", nullable: false)
+                    StockInQuantity = table.Column<int>(type: "int", nullable: false),
+                    SpecialCategoryID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Films", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Films_SpecialCategories_ID",
-                        column: x => x.ID,
+                        name: "FK_Films_SpecialCategories_SpecialCategoryID",
+                        column: x => x.SpecialCategoryID,
                         principalTable: "SpecialCategories",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -552,7 +554,9 @@ namespace DAL.Migrations
                 columns: table => new
                 {
                     FilmID = table.Column<int>(type: "int", nullable: false),
-                    CategoryID = table.Column<int>(type: "int", nullable: false)
+                    CategoryID = table.Column<int>(type: "int", nullable: false),
+                    FirstID = table.Column<int>(type: "int", nullable: false),
+                    SecondID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -612,7 +616,9 @@ namespace DAL.Migrations
                 {
                     FilmID = table.Column<int>(type: "int", nullable: false),
                     ArtistID = table.Column<int>(type: "int", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstID = table.Column<int>(type: "int", nullable: false),
+                    SecondID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -637,15 +643,9 @@ namespace DAL.Migrations
                 {
                     FilmID = table.Column<int>(type: "int", nullable: false),
                     DirectorID = table.Column<int>(type: "int", nullable: false),
-                    ID = table.Column<int>(type: "int", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ComputerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedIpAdress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedComputerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedIpAdress = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstID = table.Column<int>(type: "int", nullable: false),
+                    SecondID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -743,7 +743,9 @@ namespace DAL.Migrations
                     SupplierID = table.Column<int>(type: "int", nullable: false),
                     FilmID = table.Column<int>(type: "int", nullable: false),
                     SuppliedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false)
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    FirstID = table.Column<int>(type: "int", nullable: false),
+                    SecondID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -768,15 +770,10 @@ namespace DAL.Migrations
                 {
                     UserID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FilmID = table.Column<int>(type: "int", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ComputerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedIpAdress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedComputerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedIpAdress = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false),
                     Priority = table.Column<int>(type: "int", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FirstID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SecondID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -804,7 +801,9 @@ namespace DAL.Migrations
                     RentalDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RentalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    IsReturned = table.Column<bool>(type: "bit", nullable: false)
+                    IsReturned = table.Column<bool>(type: "bit", nullable: false),
+                    FirstID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SecondID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -827,9 +826,11 @@ namespace DAL.Migrations
                 name: "UserWatchLists",
                 columns: table => new
                 {
-                    FilmID = table.Column<int>(type: "int", nullable: false),
                     UserID = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    FilmID = table.Column<int>(type: "int", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FirstID = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SecondID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -897,7 +898,9 @@ namespace DAL.Migrations
                     FilmID = table.Column<int>(type: "int", nullable: false),
                     TestDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FilmStatus = table.Column<int>(type: "int", nullable: true),
-                    InventoryID = table.Column<int>(type: "int", nullable: false)
+                    InventoryID = table.Column<int>(type: "int", nullable: false),
+                    FirstID = table.Column<int>(type: "int", nullable: false),
+                    SecondID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -906,8 +909,7 @@ namespace DAL.Migrations
                         name: "FK_FaultyFilms_Films_FilmID",
                         column: x => x.FilmID,
                         principalTable: "Films",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_FaultyFilms_Inventories_InventoryID",
                         column: x => x.InventoryID,
@@ -1009,6 +1011,11 @@ namespace DAL.Migrations
                 name: "IX_FilmDirectors_FilmID",
                 table: "FilmDirectors",
                 column: "FilmID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Films_SpecialCategoryID",
+                table: "Films",
+                column: "SpecialCategoryID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Inventories_FilmID",

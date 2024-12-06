@@ -14,7 +14,7 @@ namespace DAL.Configurations.Users
         public void Configure(EntityTypeBuilder<UserFilmList> builder)
         {
             builder.HasKey(x => new { x.UserID, x.FilmID });//Hem UserID hem de FilmID primary key olarak atandı.
-            builder.Ignore(x => x.ID);
+            //builder.Ignore(x => x.ID);
 
             builder.HasOne(x => x.Films).WithMany(x => x.UserFilmList).HasForeignKey(x => x.FilmID);
             builder.HasOne(x => x.Users).WithMany(x => x.UserFilmList).HasForeignKey(x => x.UserID);

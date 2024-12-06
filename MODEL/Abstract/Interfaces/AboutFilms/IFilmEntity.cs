@@ -37,6 +37,8 @@ namespace MODEL.Abstract.Interfaces.AboutFilms
 
         public int StockInQuantity { get; set; }
 
+        public int? SpecialCategoryID { get; set; }
+
 
 
     }

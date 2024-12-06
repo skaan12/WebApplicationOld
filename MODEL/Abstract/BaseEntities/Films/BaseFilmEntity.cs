@@ -24,6 +24,6 @@ namespace MODEL.Abstract.BaseEntities.Films
         public string Awards { get; set; }
         public string Supplier { get; set; }
         public int StockInQuantity { get; set; }
-
+        public int? SpecialCategoryID { get ; set ; }
     }
 }

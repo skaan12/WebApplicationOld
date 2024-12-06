@@ -15,7 +15,7 @@ namespace DAL.Configurations.Films
         {
             builder.HasKey(x => x.ID);
 
-            builder.HasOne(x => x.Film).WithMany(x => x.faultyFilms).HasForeignKey(x => x.FilmID);
+            builder.HasOne(x => x.Film).WithMany(x => x.faultyFilms).HasForeignKey(x => x.FilmID).OnDelete(DeleteBehavior.NoAction);
             //builder.HasIndex(x => x.Film).IsUnique();
         }
     }

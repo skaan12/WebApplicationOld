@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20241123214715_initial")]
+    [Migration("20241130142251_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -182,6 +182,12 @@ namespace DAL.Migrations
                     b.Property<int>("FilmID")
                         .HasColumnType("int");
 
+                    b.Property<int>("FirstID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SecondID")
+                        .HasColumnType("int");
+
                     b.HasKey("CategoryID", "FilmID");
 
                     b.HasIndex("FilmID");
@@ -314,7 +320,13 @@ namespace DAL.Migrations
                     b.Property<int?>("FilmStatus")
                         .HasColumnType("int");
 
+                    b.Property<int>("FirstID")
+                        .HasColumnType("int");
+
                     b.Property<int>("InventoryID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SecondID")
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -344,7 +356,10 @@ namespace DAL.Migrations
             modelBuilder.Entity("MODEL.Entities.FilmEntities.Film", b =>
                 {
                     b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Actors")
                         .IsRequired()
@@ -386,6 +401,10 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("SpecialCategoryID")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -418,6 +437,8 @@ namespace DAL.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("SpecialCategoryID");
+
                     b.ToTable("Films");
                 });
 
@@ -429,8 +450,14 @@ namespace DAL.Migrations
                     b.Property<int>("ArtistID")
                         .HasColumnType("int");
 
+                    b.Property<int>("FirstID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Role")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SecondID")
+                        .HasColumnType("int");
 
                     b.HasKey("FilmID", "ArtistID");
 
@@ -447,34 +474,14 @@ namespace DAL.Migrations
                     b.Property<int>("FilmID")
                         .HasColumnType("int");
 
-                    b.Property<string>("ComputerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedIpAdress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ID")
+                    b.Property<int>("FirstID")
                         .HasColumnType("int");
 
                     b.Property<string>("Role")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("SecondID")
                         .HasColumnType("int");
-
-                    b.Property<string>("UpdatedComputerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UpdatedIpAdress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("DirectorID", "FilmID");
 
@@ -652,34 +659,18 @@ namespace DAL.Migrations
                     b.Property<int>("FilmID")
                         .HasColumnType("int");
 
-                    b.Property<string>("ComputerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedIpAdress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Priority")
                         .HasColumnType("int");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("SecondID")
                         .HasColumnType("int");
-
-                    b.Property<string>("UpdatedComputerName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UpdatedIpAdress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime2");
 
                     b.HasKey("UserID", "FilmID");
 
@@ -1046,7 +1037,13 @@ namespace DAL.Migrations
                     b.Property<int>("FilmID")
                         .HasColumnType("int");
 
+                    b.Property<int>("FirstID")
+                        .HasColumnType("int");
+
                     b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SecondID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("SuppliedDate")
@@ -1271,6 +1268,10 @@ namespace DAL.Migrations
                     b.Property<int>("FilmID")
                         .HasColumnType("int");
 
+                    b.Property<string>("FirstID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsReturned")
                         .HasColumnType("bit");
 
@@ -1282,6 +1283,9 @@ namespace DAL.Migrations
 
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("SecondID")
+                        .HasColumnType("int");
 
                     b.HasKey("UserID", "FilmID");
 
@@ -1298,9 +1302,16 @@ namespace DAL.Migrations
                     b.Property<int>("FilmID")
                         .HasColumnType("int");
 
+                    b.Property<string>("FirstID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SecondID")
+                        .HasColumnType("int");
 
                     b.HasKey("UserID", "FilmID");
 
@@ -1496,7 +1507,7 @@ namespace DAL.Migrations
                     b.HasOne("MODEL.Entities.FilmEntities.Film", "Film")
                         .WithMany("faultyFilms")
                         .HasForeignKey("FilmID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("MODEL.Entities.FilmEntities.Inventory", "Inventory")
@@ -1514,7 +1525,7 @@ namespace DAL.Migrations
                 {
                     b.HasOne("MODEL.Entities.FilmEntities.SpecialCategory", "SpecialCategory")
                         .WithMany("Film")
-                        .HasForeignKey("ID")
+                        .HasForeignKey("SpecialCategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

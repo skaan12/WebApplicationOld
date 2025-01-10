@@ -14,6 +14,7 @@ namespace DAL.Configurations.Films
         public void Configure(EntityTypeBuilder<Artist> builder)
         {
             builder.HasKey(x => x.ID);
+            builder.HasMany(x=>x.filmArtists).WithOne(x=>x.Artist).HasForeignKey(x=>x.ArtistID).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

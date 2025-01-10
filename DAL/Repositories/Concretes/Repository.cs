@@ -56,7 +56,7 @@ namespace DAL.Repositories.Concretes
         {
             foreach(T destroyitem in items)
             {
-                Destroy(destroyitem);
+                 Destroy(destroyitem);
             }
         }
 

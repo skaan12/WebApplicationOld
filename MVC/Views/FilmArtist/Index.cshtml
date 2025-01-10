@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Add Fake Data to FilmArtist";
+}
+<h1>
+    Add to Fake Data to FilmArtist
+</h1>
+
+<p>
+    Bu butona tıkladığınızda fake data veritabanına eklenecek.
+</p>
+
+<form method="post" asp-controller="FilmArtist" asp-action="AddFakeData">
+    <button type="submit" class="btn btn-primary">Add Fake Data</button>
+
+</form>

@@ -24,6 +24,7 @@ namespace DAL.Repositories.Concretes
         public async Task<T> GetByIdsAsync(TKey1 firstId, TKey2 secondId)
         {
             return await context.Set<T>().FindAsync(firstId,secondId);
+            
         }
 
         public async Task AddAsync(T entity)

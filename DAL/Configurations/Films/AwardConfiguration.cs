@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DAL.FakeData;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MODEL.Entities.FilmEntities;
 using System;
@@ -15,6 +16,8 @@ namespace DAL.Configurations.Films
         {
             builder.HasKey(x => x.ID);
             builder.HasOne(x => x.Film).WithMany(x => x.Awards).HasForeignKey(x => x.FilmID);
+
+            builder.HasData(FilmFaker.Awards);
         }
     }
 }

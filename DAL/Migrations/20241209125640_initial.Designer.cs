@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20241130142251_initial")]
+    [Migration("20241209125640_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -362,11 +362,9 @@ namespace DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Actors")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Category")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ComputerName")
@@ -381,46 +379,37 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Director")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FilmName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Language")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OriginalName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("SpecialCategoryID")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<int>("StockInQuantity")
+                    b.Property<int?>("StockInQuantity")
                         .HasColumnType("int");
 
                     b.Property<string>("Subtitles")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Supplier")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TrailerURL")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedComputerName")
@@ -440,6 +429,608 @@ namespace DAL.Migrations
                     b.HasIndex("SpecialCategoryID");
 
                     b.ToTable("Films");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 31,
+                            Actors = "Tom Gerhold,Carlos Daugherty,Edmund Morissette",
+                            Category = "Comedy",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 510, DateTimeKind.Local).AddTicks(271),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Autem velit eveniet veniam modi voluptate enim eius assumenda fugit.",
+                            Director = "Adonis Farrell",
+                            FilmName = "Small Wooden Bacon",
+                            Language = "Spanish",
+                            OriginalName = "Practical Plastic GlovesOriginal",
+                            Status = 0,
+                            StockInQuantity = 54,
+                            Subtitles = "Spanish",
+                            Supplier = "Ward - Welch",
+                            TrailerURL = "https://odie.com",
+                            Year = new DateTime(2019, 11, 5, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 32,
+                            Actors = "Annette D'Amore,Rosalinda Goyette,Vivienne Bradtke",
+                            Category = "Scifi",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 510, DateTimeKind.Local).AddTicks(9234),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Mollitia voluptatem pariatur nostrum et minus voluptatibus reprehenderit beatae accusamus.",
+                            Director = "Bret Gibson",
+                            FilmName = "Awesome Fresh Gloves",
+                            Language = "English",
+                            OriginalName = "Handmade Steel MouseOriginal",
+                            Status = 0,
+                            StockInQuantity = 98,
+                            Subtitles = "French",
+                            Supplier = "Tromp, Nicolas and Langworth",
+                            TrailerURL = "https://xavier.org",
+                            Year = new DateTime(2023, 7, 3, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 33,
+                            Actors = "Erin Ortiz,Mervin Aufderhar,Dina West",
+                            Category = "Horror",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 511, DateTimeKind.Local).AddTicks(2757),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Velit nihil inventore exercitationem praesentium distinctio molestias expedita asperiores adipisci.",
+                            Director = "Kelton Effertz",
+                            FilmName = "Licensed Cotton Sausages",
+                            Language = "English",
+                            OriginalName = "Generic Fresh ChairOriginal",
+                            Status = 0,
+                            StockInQuantity = 86,
+                            Subtitles = "Spanish",
+                            Supplier = "Paucek, Lowe and Schuppe",
+                            TrailerURL = "http://jocelyn.org",
+                            Year = new DateTime(1996, 2, 27, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 34,
+                            Actors = "Aurore Adams,Frederique Corwin,Camille Pollich",
+                            Category = "Comedy",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 511, DateTimeKind.Local).AddTicks(5906),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Dolores quia sint eligendi iste omnis quaerat architecto eos voluptatum.",
+                            Director = "Andrew Lakin",
+                            FilmName = "Ergonomic Fresh Fish",
+                            Language = "German",
+                            OriginalName = "Incredible Plastic BallOriginal",
+                            Status = 0,
+                            StockInQuantity = 90,
+                            Subtitles = "English",
+                            Supplier = "Stiedemann, Berge and Mueller",
+                            TrailerURL = "http://kenton.net",
+                            Year = new DateTime(2018, 3, 15, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 35,
+                            Actors = "Cora Hane,Noelia Mayert,Heidi Medhurst",
+                            Category = "Comedy",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 511, DateTimeKind.Local).AddTicks(9246),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Distinctio unde labore est aut sed adipisci deserunt voluptatibus quis.",
+                            Director = "Seth Wintheiser",
+                            FilmName = "Unbranded Metal Towels",
+                            Language = "Spanish",
+                            OriginalName = "Licensed Concrete PantsOriginal",
+                            Status = 0,
+                            StockInQuantity = 53,
+                            Subtitles = "English",
+                            Supplier = "White Group",
+                            TrailerURL = "http://kendra.biz",
+                            Year = new DateTime(2018, 4, 24, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 36,
+                            Actors = "Kathleen Parker,Erik Quitzon,Beatrice Borer",
+                            Category = "Scifi",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 512, DateTimeKind.Local).AddTicks(2218),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Est consequatur dolor placeat quia est deleniti rerum adipisci et.",
+                            Director = "Albertha Murazik",
+                            FilmName = "Licensed Cotton Car",
+                            Language = "English",
+                            OriginalName = "Licensed Steel KeyboardOriginal",
+                            Status = 0,
+                            StockInQuantity = 47,
+                            Subtitles = "Spanish",
+                            Supplier = "Hoppe, Rodriguez and Spinka",
+                            TrailerURL = "http://tanya.net",
+                            Year = new DateTime(2009, 6, 10, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 37,
+                            Actors = "Tiana Thiel,Waylon Braun,Maud Rice",
+                            Category = "Comedy",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 512, DateTimeKind.Local).AddTicks(5175),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Dignissimos id at similique recusandae aspernatur cupiditate error et omnis.",
+                            Director = "Kay Nitzsche",
+                            FilmName = "Intelligent Fresh Sausages",
+                            Language = "French",
+                            OriginalName = "Awesome Frozen BaconOriginal",
+                            Status = 0,
+                            StockInQuantity = 47,
+                            Subtitles = "English",
+                            Supplier = "Gislason LLC",
+                            TrailerURL = "http://teresa.name",
+                            Year = new DateTime(2016, 9, 9, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 38,
+                            Actors = "Camden Jerde,Lelah Feil,Brycen Fadel",
+                            Category = "Drama",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 512, DateTimeKind.Local).AddTicks(8099),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Tenetur sequi quam sit laboriosam magnam omnis fugit qui doloremque.",
+                            Director = "Dwight Konopelski",
+                            FilmName = "Intelligent Plastic Towels",
+                            Language = "French",
+                            OriginalName = "Generic Wooden PantsOriginal",
+                            Status = 0,
+                            StockInQuantity = 34,
+                            Subtitles = "English",
+                            Supplier = "Von, Parker and Bartell",
+                            TrailerURL = "http://yasmin.com",
+                            Year = new DateTime(2018, 6, 1, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 39,
+                            Actors = "Anjali Ernser,Assunta Upton,Krista Gulgowski",
+                            Category = "Action",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 513, DateTimeKind.Local).AddTicks(1023),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Quia non sed eaque ut aliquam officiis eum accusamus et.",
+                            Director = "Letitia Hirthe",
+                            FilmName = "Handmade Wooden Shoes",
+                            Language = "Spanish",
+                            OriginalName = "Rustic Wooden CheeseOriginal",
+                            Status = 0,
+                            StockInQuantity = 77,
+                            Subtitles = "Spanish",
+                            Supplier = "Hammes, Metz and Nolan",
+                            TrailerURL = "https://gussie.biz",
+                            Year = new DateTime(2020, 7, 18, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 40,
+                            Actors = "Lamont Shanahan,Sandy Schaden,Freeman Cremin",
+                            Category = "Horror",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 513, DateTimeKind.Local).AddTicks(3941),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Est rem nesciunt eius id est exercitationem provident aut officiis.",
+                            Director = "Friedrich Sawayn",
+                            FilmName = "Licensed Fresh Car",
+                            Language = "English",
+                            OriginalName = "Fantastic Cotton GlovesOriginal",
+                            Status = 0,
+                            StockInQuantity = 90,
+                            Subtitles = "English",
+                            Supplier = "Kshlerin, Adams and Mraz",
+                            TrailerURL = "https://tracey.org",
+                            Year = new DateTime(2013, 11, 4, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 41,
+                            Actors = "Wayne Mitchell,Kyla Adams,Stephany Bogan",
+                            Category = "Drama",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 513, DateTimeKind.Local).AddTicks(7218),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Maiores vitae consectetur neque ut architecto eum temporibus expedita eius.",
+                            Director = "Meta Jast",
+                            FilmName = "Tasty Frozen Bike",
+                            Language = "French",
+                            OriginalName = "Sleek Steel KeyboardOriginal",
+                            Status = 0,
+                            StockInQuantity = 93,
+                            Subtitles = "English",
+                            Supplier = "Lebsack, Dickinson and Okuneva",
+                            TrailerURL = "https://rosalinda.com",
+                            Year = new DateTime(2004, 11, 10, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 42,
+                            Actors = "Shannon Yost,Sofia Harris,Pearlie Cruickshank",
+                            Category = "Action",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 514, DateTimeKind.Local).AddTicks(1147),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Animi natus quia excepturi cumque aut voluptas omnis culpa aut.",
+                            Director = "Jedediah Gottlieb",
+                            FilmName = "Rustic Plastic Chips",
+                            Language = "German",
+                            OriginalName = "Tasty Cotton FishOriginal",
+                            Status = 0,
+                            StockInQuantity = 33,
+                            Subtitles = "English",
+                            Supplier = "Wiza, Muller and Jacobi",
+                            TrailerURL = "http://tommie.info",
+                            Year = new DateTime(2021, 1, 31, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 43,
+                            Actors = "Owen Koepp,Citlalli Volkman,Alek Ullrich",
+                            Category = "Drama",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 514, DateTimeKind.Local).AddTicks(4683),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Est hic et eum quod nam pariatur aliquid error voluptate.",
+                            Director = "Troy MacGyver",
+                            FilmName = "Incredible Rubber Salad",
+                            Language = "Spanish",
+                            OriginalName = "Practical Plastic HatOriginal",
+                            Status = 0,
+                            StockInQuantity = 21,
+                            Subtitles = "German",
+                            Supplier = "Ortiz - Schiller",
+                            TrailerURL = "http://oceane.biz",
+                            Year = new DateTime(2012, 3, 3, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 44,
+                            Actors = "Eliza Dickens,Sally Abshire,Adelia Stark",
+                            Category = "Action",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 514, DateTimeKind.Local).AddTicks(8916),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Dolor aut ut exercitationem consectetur unde dolor quis est ea.",
+                            Director = "Carmine Reilly",
+                            FilmName = "Generic Soft Keyboard",
+                            Language = "English",
+                            OriginalName = "Ergonomic Fresh ShoesOriginal",
+                            Status = 0,
+                            StockInQuantity = 30,
+                            Subtitles = "English",
+                            Supplier = "Oberbrunner - Zieme",
+                            TrailerURL = "http://amira.com",
+                            Year = new DateTime(2012, 8, 5, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 45,
+                            Actors = "Amir Hackett,Della Breitenberg,Maurice Quigley",
+                            Category = "Drama",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 515, DateTimeKind.Local).AddTicks(2211),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Consequuntur beatae consectetur reiciendis optio pariatur voluptate quis nostrum corrupti.",
+                            Director = "Vella Sawayn",
+                            FilmName = "Gorgeous Cotton Pants",
+                            Language = "French",
+                            OriginalName = "Unbranded Metal ChickenOriginal",
+                            Status = 0,
+                            StockInQuantity = 15,
+                            Subtitles = "French",
+                            Supplier = "Erdman, Medhurst and Stehr",
+                            TrailerURL = "http://maci.biz",
+                            Year = new DateTime(1995, 4, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 46,
+                            Actors = "Lura Stanton,Favian Jenkins,Sophia Mayer",
+                            Category = "Scifi",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 515, DateTimeKind.Local).AddTicks(5934),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Ut deleniti qui recusandae recusandae illum est provident placeat ad.",
+                            Director = "Ressie Murazik",
+                            FilmName = "Practical Rubber Computer",
+                            Language = "English",
+                            OriginalName = "Refined Rubber CheeseOriginal",
+                            Status = 0,
+                            StockInQuantity = 12,
+                            Subtitles = "German",
+                            Supplier = "Powlowski - Blick",
+                            TrailerURL = "http://jody.com",
+                            Year = new DateTime(2018, 2, 9, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 47,
+                            Actors = "Giovanny Graham,Gardner Kautzer,Maude Breitenberg",
+                            Category = "Comedy",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 515, DateTimeKind.Local).AddTicks(9338),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Neque tempora ab assumenda voluptatibus et occaecati voluptatum sit saepe.",
+                            Director = "Alejandra Beahan",
+                            FilmName = "Rustic Cotton Chair",
+                            Language = "Spanish",
+                            OriginalName = "Licensed Concrete FishOriginal",
+                            Status = 0,
+                            StockInQuantity = 29,
+                            Subtitles = "English",
+                            Supplier = "Dietrich - Murazik",
+                            TrailerURL = "https://jacey.org",
+                            Year = new DateTime(1997, 12, 1, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 48,
+                            Actors = "Dashawn Stamm,Mellie Lueilwitz,Nestor Wuckert",
+                            Category = "Scifi",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 516, DateTimeKind.Local).AddTicks(2813),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Eius quia et laudantium repudiandae ea dolor consectetur accusamus enim.",
+                            Director = "Joan Williamson",
+                            FilmName = "Fantastic Granite Cheese",
+                            Language = "English",
+                            OriginalName = "Sleek Concrete ShoesOriginal",
+                            Status = 0,
+                            StockInQuantity = 89,
+                            Subtitles = "English",
+                            Supplier = "Rohan, Roberts and Crooks",
+                            TrailerURL = "https://jules.net",
+                            Year = new DateTime(2007, 4, 30, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 49,
+                            Actors = "Jaylen Dibbert,Thora Leuschke,Sibyl Sauer",
+                            Category = "Action",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 516, DateTimeKind.Local).AddTicks(6365),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Omnis maiores quia nihil quidem dolores rerum harum est delectus.",
+                            Director = "Lenore Rau",
+                            FilmName = "Ergonomic Metal Shoes",
+                            Language = "Spanish",
+                            OriginalName = "Licensed Soft BaconOriginal",
+                            Status = 0,
+                            StockInQuantity = 39,
+                            Subtitles = "English",
+                            Supplier = "Kunde, Weber and Nitzsche",
+                            TrailerURL = "https://bria.net",
+                            Year = new DateTime(2001, 5, 21, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 50,
+                            Actors = "Justyn Cummings,Cielo Metz,Agnes Hamill",
+                            Category = "Scifi",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 517, DateTimeKind.Local).AddTicks(715),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Voluptatem unde quae nobis porro quis ad aut quasi maxime.",
+                            Director = "Sonny Daugherty",
+                            FilmName = "Practical Plastic Soap",
+                            Language = "English",
+                            OriginalName = "Awesome Rubber TableOriginal",
+                            Status = 0,
+                            StockInQuantity = 42,
+                            Subtitles = "Spanish",
+                            Supplier = "Hansen, Mayer and Krajcik",
+                            TrailerURL = "https://macey.net",
+                            Year = new DateTime(2021, 2, 17, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 51,
+                            Actors = "Gennaro Hansen,Alanis Reichert,Kristoffer Mitchell",
+                            Category = "Comedy",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 517, DateTimeKind.Local).AddTicks(3728),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Magni omnis temporibus eaque ea fugiat soluta nobis fugit quis.",
+                            Director = "Willa Schiller",
+                            FilmName = "Handmade Cotton Shoes",
+                            Language = "French",
+                            OriginalName = "Generic Rubber TowelsOriginal",
+                            Status = 0,
+                            StockInQuantity = 18,
+                            Subtitles = "Spanish",
+                            Supplier = "Padberg - Graham",
+                            TrailerURL = "http://herminio.net",
+                            Year = new DateTime(2019, 4, 24, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 52,
+                            Actors = "Maye Stracke,Alda Veum,Cade Howe",
+                            Category = "Comedy",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 517, DateTimeKind.Local).AddTicks(6639),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Maiores id et occaecati quia qui praesentium et natus molestiae.",
+                            Director = "Geovanny Boyle",
+                            FilmName = "Unbranded Soft Tuna",
+                            Language = "Spanish",
+                            OriginalName = "Small Cotton KeyboardOriginal",
+                            Status = 0,
+                            StockInQuantity = 65,
+                            Subtitles = "English",
+                            Supplier = "Mayert - Adams",
+                            TrailerURL = "http://zackary.biz",
+                            Year = new DateTime(1996, 12, 27, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 53,
+                            Actors = "Asha Maggio,Alva Emard,Zoie Marvin",
+                            Category = "Drama",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 518, DateTimeKind.Local).AddTicks(1167),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Qui ipsam earum labore quos voluptas consequatur eum repellat recusandae.",
+                            Director = "Astrid Gutkowski",
+                            FilmName = "Fantastic Soft Pants",
+                            Language = "English",
+                            OriginalName = "Generic Soft ShirtOriginal",
+                            Status = 0,
+                            StockInQuantity = 6,
+                            Subtitles = "German",
+                            Supplier = "VonRueden - Boyer",
+                            TrailerURL = "https://ıva.biz",
+                            Year = new DateTime(2007, 9, 24, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 54,
+                            Actors = "Mattie Daugherty,Sandra Sporer,Danielle Schmitt",
+                            Category = "Comedy",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 518, DateTimeKind.Local).AddTicks(5262),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Et incidunt et mollitia magni voluptas ullam nihil ducimus omnis.",
+                            Director = "Anita Labadie",
+                            FilmName = "Ergonomic Fresh Bike",
+                            Language = "English",
+                            OriginalName = "Refined Granite ChickenOriginal",
+                            Status = 0,
+                            StockInQuantity = 94,
+                            Subtitles = "German",
+                            Supplier = "Nolan - Parisian",
+                            TrailerURL = "https://ısidro.net",
+                            Year = new DateTime(2007, 4, 16, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 55,
+                            Actors = "Noah Legros,Dave Goodwin,Fidel Langosh",
+                            Category = "Action",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 519, DateTimeKind.Local).AddTicks(3619),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Expedita iure molestias est nulla eveniet aut non quidem rerum.",
+                            Director = "Ernestine Bashirian",
+                            FilmName = "Generic Soft Bike",
+                            Language = "German",
+                            OriginalName = "Tasty Cotton ChairOriginal",
+                            Status = 0,
+                            StockInQuantity = 47,
+                            Subtitles = "French",
+                            Supplier = "Oberbrunner - Walter",
+                            TrailerURL = "http://josiane.info",
+                            Year = new DateTime(2006, 8, 9, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 56,
+                            Actors = "Aryanna Zieme,Keenan Sipes,Marty Ernser",
+                            Category = "Scifi",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 520, DateTimeKind.Local).AddTicks(4243),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Esse consequatur nesciunt hic pariatur velit quia ut voluptatibus id.",
+                            Director = "Dora Dare",
+                            FilmName = "Sleek Soft Table",
+                            Language = "Spanish",
+                            OriginalName = "Awesome Frozen MouseOriginal",
+                            Status = 0,
+                            StockInQuantity = 89,
+                            Subtitles = "English",
+                            Supplier = "Gibson Group",
+                            TrailerURL = "http://zander.biz",
+                            Year = new DateTime(2009, 11, 10, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 57,
+                            Actors = "Carolanne Jakubowski,Matilde Smitham,Brennon Franecki",
+                            Category = "Comedy",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 520, DateTimeKind.Local).AddTicks(8105),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Amet nihil provident nihil autem omnis non blanditiis voluptatem tempore.",
+                            Director = "Kyleigh Barrows",
+                            FilmName = "Practical Plastic Bike",
+                            Language = "Spanish",
+                            OriginalName = "Unbranded Wooden PantsOriginal",
+                            Status = 0,
+                            StockInQuantity = 30,
+                            Subtitles = "German",
+                            Supplier = "White and Sons",
+                            TrailerURL = "https://mohammed.com",
+                            Year = new DateTime(2014, 10, 5, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 58,
+                            Actors = "Daisy Hickle,Terrence Pouros,Mable Vandervort",
+                            Category = "Drama",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 521, DateTimeKind.Local).AddTicks(1157),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Rerum ea rerum aut qui eos tempora tempore eveniet natus.",
+                            Director = "Isabella Gislason",
+                            FilmName = "Generic Frozen Tuna",
+                            Language = "French",
+                            OriginalName = "Awesome Metal ChipsOriginal",
+                            Status = 0,
+                            StockInQuantity = 59,
+                            Subtitles = "English",
+                            Supplier = "McClure - Lueilwitz",
+                            TrailerURL = "http://aliyah.net",
+                            Year = new DateTime(2017, 9, 7, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 59,
+                            Actors = "Jacey Macejkovic,Stanton Collier,Ayden Gerhold",
+                            Category = "Scifi",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 521, DateTimeKind.Local).AddTicks(4037),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Repellat blanditiis explicabo cumque laboriosam fuga animi quia nostrum quo.",
+                            Director = "Jordon Wintheiser",
+                            FilmName = "Fantastic Rubber Cheese",
+                            Language = "Spanish",
+                            OriginalName = "Handmade Metal ChickenOriginal",
+                            Status = 0,
+                            StockInQuantity = 84,
+                            Subtitles = "Spanish",
+                            Supplier = "Macejkovic, Goyette and Gibson",
+                            TrailerURL = "http://marcellus.net",
+                            Year = new DateTime(2018, 7, 4, 0, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 60,
+                            Actors = "Kiana Goodwin,Kallie Green,Vella Grady",
+                            Category = "Drama",
+                            ComputerName = "DESKTOP-P8K1SK9",
+                            CreatedDate = new DateTime(2024, 12, 9, 15, 56, 40, 521, DateTimeKind.Local).AddTicks(7629),
+                            CreatedIpAdress = "192.168.56.1",
+                            Description = "Sit voluptates officiis aut est nesciunt et dolore tenetur odio.",
+                            Director = "Ronny Koss",
+                            FilmName = "Intelligent Wooden Fish",
+                            Language = "French",
+                            OriginalName = "Handcrafted Soft SaladOriginal",
+                            Status = 0,
+                            StockInQuantity = 31,
+                            Subtitles = "Spanish",
+                            Supplier = "Swaniawski Group",
+                            TrailerURL = "http://chase.org",
+                            Year = new DateTime(2004, 10, 14, 0, 0, 0, 0, DateTimeKind.Local)
+                        });
                 });
 
             modelBuilder.Entity("MODEL.Entities.FilmEntities.FilmArtist", b =>
@@ -1525,9 +2116,7 @@ namespace DAL.Migrations
                 {
                     b.HasOne("MODEL.Entities.FilmEntities.SpecialCategory", "SpecialCategory")
                         .WithMany("Film")
-                        .HasForeignKey("SpecialCategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SpecialCategoryID");
 
                     b.Navigation("SpecialCategory");
                 });

@@ -1,0 +1,24 @@
+﻿@model List<MODEL.Entities.FilmEntities.Film>
+
+<h1>Film Listesi</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID </th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Situation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var film in Model)
+            {
+                <tr>
+                    <td>@film.ID</td>
+                    <td>@film.FilmName</td>
+                    <td>@film.Category</td>
+                    <td>@film.Status</td>
+                </tr>
+            }
+    </tbody>
+</table>

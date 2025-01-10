@@ -3,7 +3,16 @@ using BLL.Services.Concretes;
 using DAL.Context;
 using DAL.Repositories.Abstracts;
 using DAL.Repositories.Concretes;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using MODEL.Entities;
+using MODEL.Entities.UserEntities;
+using BLL.Services.Abstracts.FakeData;
+using BLL.Services.Concretes.FakeData;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,12 +20,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //DBContext 
+builder.Services.AddDbContext<ProjectContext>(x=>x.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddDbContext<ProjectContext>(x=>x.UseSqlServer("DefaultConnection"));
+//AddIdentity
+builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<ProjectContext>();
 
 //Service Injection
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+builder.Services.AddScoped(typeof(IJoinRepository<,,>),typeof(JoinRepository<,,>));
+builder.Services.AddScoped(typeof(IJoinService<,,>),typeof(JoinService<,,>));
+builder.Services.AddScoped(typeof(IFakeDataService<>),typeof(FakeDataService<>));
 
 //Custom Services
 builder.Services.AddScoped<IFilmService,FilmService>();
@@ -38,6 +52,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//app.MapControllerRoute(
+//    name: "data",
+//    pattern: "data/{action}/{count?}",
+//    defaults: new { controller = "Data" });
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

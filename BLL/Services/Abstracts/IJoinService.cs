@@ -14,5 +14,7 @@ namespace BLL.Services.Abstracts
         Task AddAsync(T entity);
         Task RemoveAsync(T entity);
         Task UpdateAsync(T entity);
+
+        Task AddMultipleArtistForFilmAsync(TKey1 filmId, List<TKey2> artistIds, string? role = null);
     }
 }

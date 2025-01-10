@@ -27,7 +27,7 @@ namespace MODEL.Entities.FilmEntities
         //Relation Inventory
         public List<Inventory> Inventory { get; set; }
         //Relation : SpecialCategory
-        public SpecialCategory SpecialCategory { get; set; }
+        public SpecialCategory? SpecialCategory { get; set; }
         //Relation: Rating
         public List<Rating> ratings { get; set; }
 

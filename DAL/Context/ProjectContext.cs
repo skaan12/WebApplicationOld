@@ -3,6 +3,7 @@ using DAL.Configurations.Films;
 using DAL.Configurations.Orders;
 using DAL.Configurations.Suppliers;
 using DAL.Configurations.Users;
+using DAL.FakeData;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MODEL.Entities.FilmEntities;
@@ -19,11 +20,15 @@ namespace DAL.Context
 {
     public class ProjectContext: IdentityDbContext<User>
     {
-        //const
-        //public ProjectContext(DbContextOptions<ProjectContext> options):base(options) 
-        //{
+        //constructor
+        public ProjectContext(DbContextOptions<ProjectContext> options) : base(options)
+        {
 
-        //}
+        }
+        public ProjectContext()
+        {
+            
+        }
 
         #region DBSet
 
@@ -100,6 +105,8 @@ namespace DAL.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+
+            FilmFaker.Initialize(30, 3);
             //Film Configurations
             builder.ApplyConfiguration(new FilmConfiguration());
 

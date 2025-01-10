@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using DAL.FakeData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MODEL.Entities.FilmEntities;
@@ -17,7 +18,7 @@ namespace DAL.Configurations.Films
             builder.HasKey(x => x.ID);
             builder.Property(x => x.Description).HasMaxLength(250);
             builder.HasOne(x=>x.SpecialCategory).WithMany(x=>x.Film).HasForeignKey(x=>x.SpecialCategoryID);
-            
+            builder.HasData(FilmFaker.Films);
         }
 
 

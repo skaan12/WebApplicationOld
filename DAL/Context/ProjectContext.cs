@@ -27,7 +27,7 @@ namespace DAL.Context
         }
         public ProjectContext()
         {
-            
+
         }
 
         #region DBSet

@@ -11,6 +11,8 @@ using MODEL.Entities;
 using MODEL.Entities.UserEntities;
 using BLL.Services.Abstracts.FakeData;
 using BLL.Services.Concretes.FakeData;
+using BLL.Services.Abstracts.UserAbstracts;
+using BLL.Services.Concretes.UserConcretes;
 
 
 
@@ -31,6 +33,9 @@ builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 builder.Services.AddScoped(typeof(IJoinRepository<,,>),typeof(JoinRepository<,,>));
 builder.Services.AddScoped(typeof(IJoinService<,,>),typeof(JoinService<,,>));
 builder.Services.AddScoped(typeof(IFakeDataService<>),typeof(FakeDataService<>));
+builder.Services.AddScoped<IEncryptionService, IEncryptionService>();
+builder.Services.AddScoped<IPasswordHasher<User>,PasswordHasher<User>>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 //Custom Services
 builder.Services.AddScoped<IFilmService,FilmService>();
@@ -58,6 +63,6 @@ app.UseAuthorization();
 //    defaults: new { controller = "Data" });
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=index}/{id?}");
 
 app.Run();

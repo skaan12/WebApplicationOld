@@ -1,0 +1,55 @@
+﻿@model BLL.ViewModels.UserViewModels.LoginVM
+@{
+    ViewData["Title"] = "UserLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <style>
+        .userlogin-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fbf7f7        }
+        .userlogin-form{
+            width:100%;
+            max-width:330px;
+            padding:15px;
+            background:#fff;
+            border-radius:10px;
+            box-shadow:0 4px 8px rgba(0,0,0,0.2);
+        }
+        .userlogin-form img{
+            display:block;
+            margin:0 auto 20px auto;
+        }
+
+        
+
+    </style>
+
+<div class="userlogin-container">    
+        <form class="userlogin-form" method="post" asp-action="UserLogin">
+            <img class="mb-4 ms-xl-auto" src="https://i.pinimg.com/736x/db/fe/58/dbfe584e0237e094fd6ea790e6e687d1.jpg" alt width="72" height="72"/>
+            <h1 class="h3 mb-3 fw-normal text-center">Please sign up</h1>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" asp-for="Email"
+                       id="floatingInput" placeholder="name@example.com" />
+                <label for="floatingInput">Email adress</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" asp-for="Password" id="floatingPassword" placeholder="Password"/>
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"/>
+                    Remember me
+                </label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Sign up</button>
+            <span class="mb-4">Hesap oluşturmak için <a asp-action="Register" asp-controller="Home">tıklayın</a></span>
+        </form>
+  
+</div>

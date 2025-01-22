@@ -26,6 +26,7 @@ namespace MODEL.Abstract.Interfaces.AboutUsers
 
         public MembershipStatus MembershipStatus { get; set; }
 
+        public UserType UserType { get; set; }
 
     }
 }

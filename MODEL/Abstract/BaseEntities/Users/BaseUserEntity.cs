@@ -22,5 +22,6 @@ namespace MODEL.Abstract.BaseEntities.Users
         public int MembershipID { get; set; }
         public DateTime MembershipDate { get; set; }
         public MembershipStatus MembershipStatus { get; set; }
+        public UserType UserType { get ; set ; }
     }
 }

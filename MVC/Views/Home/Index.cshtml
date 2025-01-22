@@ -18,7 +18,7 @@
             <a class="d-flex align-items-center fw-normal p-0" href="#">
                 <img src="https://i.pinimg.com/736x/db/fe/58/dbfe584e0237e094fd6ea790e6e687d1.jpg" alt="Logo" width="40" height="40" class="d-inline-block align-text-top"><span class="nav-link ms-2">RentFilm</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" >
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -67,8 +67,12 @@
                                 <li>-10 films rent</li>
                                 <li>-Free shipping</li>
                             </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign Up</button>
+
                         </div>
+
+                    </div>
+                    <div class="">
+                        <a type="button" class="btn btn-lg btn-outline-danger col-md-4 mx-auto" asp-controller="Home" asp-action="Register" asp-route-membershipType="Basic">Sign Up</a>
                     </div>
                 </div>
                 <div class="col">
@@ -82,10 +86,14 @@
                                 <li>-20 films rent</li>
                                 <li>-Free shipping</li>
                             </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-warning">Sign Up</button>
+
                         </div>
                     </div>
+                    <div>
+                        <a type="button" class="btn btn-lg btn-outline-warning col-md-4 mx-auto" asp-controller="Home" asp-action="Register" asp-route-membershipType="Gold">Sign Up</a>
+                    </div>
                 </div>
+                
                 <div class="col">
                     <div class="card mb-4 rounded-3 shadow-sm">
                         <div class="card-header py-3">
@@ -97,11 +105,17 @@
                                 <li>-30 films rent</li>
                                 <li>-Free shipping</li>
                             </ul>
-                            <button type="button" class="w-100 btn btn-lg btn-outline-dark">Sign Up</button>
+
                         </div>
+                    </div>
+                    <div>
+                        <a type="button" class="btn btn-lg btn-outline-secondary col-md-4 mx-auto" asp-controller="Home" asp-action="Register" asp-route-membershipType ="Premium">Sign Up</a>
                     </div>
                 </div>
             </div>
+            
+            
+            
         </main>
     </div>
     <div class="container">

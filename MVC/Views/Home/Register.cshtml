@@ -1,0 +1,55 @@
+﻿@model BLL.ViewModels.UserViewModels.RegisterVM
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .register-container{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        min-height: 100vh;
+        background-color:#fbf7f7 !important;
+    }
+    register-form{
+        width:100%;
+        max-width:330px;
+        padding:15px;
+        background:#fff;
+        border-radius:10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+</style>
+
+<div class="register-container">
+
+    <form class="register-form" method="post" asp-action="Register">
+        <img />
+        <h1 class="h3 mb-3 fw-normal text-center">Please sign up</h1>
+        <div class=" mb-3">
+            <input type="text" class="form-control" asp-for="UserName" placeholder="Username*" />
+        </div>
+        <div class="mb-3">
+            <input type="email" class="form-control" asp-for="Email" placeholder="Email*" />
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" asp-for="Password" placeholder="Password*" />
+        </div>
+        <div class="mb-3">
+            <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="Confirm Password*" />
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" asp-for="Address" placeholder="Address" />
+        </div>
+        <div class="mb-3">
+            <select class="form-select" asp-for="MembershipType" asp-items="Html.GetEnumSelectList<MODEL.Abstract.Enums.MembershipType>()" id="MembershipType">
+                <option value="" selected disabled></option>    
+            </select>
+        </div>
+        <p class="mb-3 ms-1">Select Membership Type*</p>
+        <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Sign up</button>
+        <p>* alanların doldurulması zorunludur.</p>
+    </form>
+</div>
+ 

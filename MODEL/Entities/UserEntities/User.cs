@@ -12,7 +12,7 @@ namespace MODEL.Entities.UserEntities
     public class User : BaseUserEntity
     {
         //Relation
-        public Membership Membership { get; set; }
+        public Membership? Membership { get; set; }
 
         public List<Order> Order { get; set; }
 

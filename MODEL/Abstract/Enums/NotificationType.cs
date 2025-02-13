@@ -8,7 +8,7 @@ namespace MODEL.Abstract.Enums
 {
     public enum NotificationType
     {
-        Delivery,
-        Promotion
+        Delivered,
+        NonDelivered
     }
 }

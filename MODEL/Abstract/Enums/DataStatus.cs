@@ -9,6 +9,6 @@ namespace MODEL.Abstract.Enums
     public enum DataStatus
     {
         Active,
-        Inactive
+        Inactive        
     }
 }

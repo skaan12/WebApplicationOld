@@ -15,7 +15,9 @@ namespace DAL.Configurations.Users
         {
             builder.HasKey(x => x.Id);
 
-            builder.HasOne(x => x.Membership).WithMany(x => x.User).HasForeignKey(x => x.MembershipID);
+            builder.HasOne(x => x.Membership).WithMany(x => x.User).HasForeignKey(x => x.MembershipID).IsRequired(false);
+
+            
 
             //builder.HasIndex(x => x.Membership).IsUnique();
         }

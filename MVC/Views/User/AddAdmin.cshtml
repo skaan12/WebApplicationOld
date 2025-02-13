@@ -1,0 +1,38 @@
+﻿@model MVC.Models.ViewModels.AddAdminVM
+
+@{
+    ViewData["Title"] = "Admin Ekle";
+}
+
+<h2 class="mb-4">Admin Ekle</h2>
+
+<form asp-action="AddAdmin" method="post">
+    <div class="mb-3">
+        <label asp-for="UserName" class="form-label"></label>
+        <input asp-for="UserName" class="form-control"/>
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control"></input>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control"></input>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CVC" class="form-label"></label>
+        <input asp-for="CVC" class="form-control"></input>
+        <span asp-validation-for="CVC" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CreditCard" class="form-label"></label>
+        <input asp-for="CreditCard" class="form-control"></input>
+        <span asp-validation-for="CreditCard" class="text-danger"></span>
+
+        <button type="submit" class="btn btn-primary">Admin Ekle</button>
+    </div>
+</form>
+

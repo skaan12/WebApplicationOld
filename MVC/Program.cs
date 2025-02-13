@@ -33,8 +33,9 @@ builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 builder.Services.AddScoped(typeof(IJoinRepository<,,>),typeof(JoinRepository<,,>));
 builder.Services.AddScoped(typeof(IJoinService<,,>),typeof(JoinService<,,>));
 builder.Services.AddScoped(typeof(IFakeDataService<>),typeof(FakeDataService<>));
-builder.Services.AddScoped<IEncryptionService, IEncryptionService>();
+builder.Services.AddScoped<IEncryptionService, EncrytionService>();
 builder.Services.AddScoped<IPasswordHasher<User>,PasswordHasher<User>>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
 //Custom Services

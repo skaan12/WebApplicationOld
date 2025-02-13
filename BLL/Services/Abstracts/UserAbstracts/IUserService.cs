@@ -9,8 +9,23 @@ namespace BLL.Services.Abstracts.UserAbstracts
 {
     public interface IUserService
     {
-        void CreateUser(User user);
-        void UpdateUser(User user);
-        User GetUserById(int id);
+        Task CreateUserAsync(User user,string password, string cvc, string creditCard);
+        Task UpdateUserAsync(User user);        
+        Task AssignRoleToUserAsync(string userId,string roleName);
+        Task DeleteUserAsync(string userId);
+        Task<User> GetUserByIdAsync(string id);
+
+        IEnumerable<User> GetAllUsers();
+        IEnumerable<User> GetAdmins();
+        IEnumerable<User> GetMembers();
+        IEnumerable<User> GetPassiveMembers();
+
+        IEnumerable<User> GetBasicMembers();
+
+        IEnumerable<User> GetGoldMembers();
+
+        IEnumerable<User> GetPremiumMembers();
+
+
     }
 }
